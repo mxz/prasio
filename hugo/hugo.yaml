@@ -1,0 +1,4 @@
+baseURL: https://pras.io/
+languageCode: en-us
+title: pras.io
+theme: ["PaperMod"]
