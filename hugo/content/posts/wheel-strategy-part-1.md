@@ -4,7 +4,7 @@ date: 2026-05-28
 draft: false
 tags: ["options", "trading", "wheel strategy", "investing"]
 categories: ["Options Trading"]
-description: "Before you can run the wheel, you need to understand what you're actually doing when you trade options. This is Part 1 of a 3-part series — no hand-holding, just the fundamentals done right."
+description: "Before you can run the wheel, you need to understand what you're actually doing when you trade options. This is Part 1 of a 3-part series."
 showToc: true
 TocOpen: false
 cover:
