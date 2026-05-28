@@ -19,7 +19,7 @@ cover:
 
 ## Why This Series Exists
 
-Most options content falls into one of two failure modes: it either drowns beginners in Greek letters before they understand the basic structure, or it oversimplifies to the point of being useless once you try to actually trade. This series aims for a third path — precise, unambiguous, and respectful of your ability to reason through complexity.
+When I first learned option trading, I found the educational content fell into one of two failure modes: it either inundated me in Greek letters before explaining the basics, or it oversimplified to the point of being useless once you try to actually trade. In this series, I've tried to be precise, unambiguous, and respectful of your ability to reason through complexity.
 
 The wheel strategy is one of the most approachable systematic options strategies. It's not exotic. It doesn't require predicting market direction with precision. And it generates real, recurring income from stocks you're already willing to own. But it requires a genuine understanding of what options are and how they behave — not just a surface-level metaphor.
 
@@ -81,7 +81,7 @@ That second one — **selling puts** — is your entry mechanism in the wheel. Y
 
 ## The Key Terms You Need to Know
 
-You don't need a glossary of 40 terms. You need these, precisely understood.
+You don't need to know every term in the options glossary. I've focused on only the absolute bare essentials.
 
 ### Strike Price
 
