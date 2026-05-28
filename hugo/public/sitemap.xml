@@ -2,6 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://localhost:1313/tags/cash-secured-puts/</loc>
+    <lastmod>2026-05-28T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/categories/</loc>
     <lastmod>2026-05-28T00:00:00+00:00</lastmod>
   </url><url>
@@ -26,13 +29,13 @@
     <loc>http://localhost:1313/posts/wheel-strategy-part-1/</loc>
     <lastmod>2026-05-28T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>http://localhost:1313/posts/wheel-strategy-part-2/</loc>
+    <lastmod>2026-05-28T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/tags/trading/</loc>
     <lastmod>2026-05-28T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/wheel-strategy/</loc>
     <lastmod>2026-05-28T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/posts/my-first-post/</loc>
-    <lastmod>2026-05-27T16:39:05-07:00</lastmod>
   </url>
 </urlset>

@@ -11,6 +11,7 @@ cover:
   image: ""
   alt: "The Wheel Strategy"
   caption: ""
+series: ["The Wheel Strategy"]
 ---
 
 > **Disclaimer:** This post is for educational purposes only and does not constitute financial advice. Options trading involves substantial risk of loss. Past performance is not indicative of future results. Consult a licensed financial professional before making any investment decisions. All examples are illustrative only.
@@ -23,7 +24,7 @@ When I first learned option trading, I found the educational content fell into o
 
 The wheel strategy is one of the most approachable systematic options strategies. It's not exotic. It doesn't require predicting market direction with precision. And it generates real, recurring income from stocks you're already willing to own. But it requires a genuine understanding of what options are and how they behave — not just a surface-level metaphor.
 
-This first post lays that foundation. Parts 2 and 3 will cover the two operational legs of the wheel: selling puts (entry) and selling calls (exit). If you're already comfortable with options mechanics, skim ahead. If not, read carefully — the conceptual framework here will make everything downstream much cleaner.
+This first post lays that foundation. Parts [2](/posts/wheel-strategy-part-2) and 3 will cover the two operational legs of the wheel: selling puts (entry) and selling calls (exit). If you're already comfortable with options mechanics, skim ahead. If not, read carefully — the conceptual framework here will make everything downstream much cleaner.
 
 ---
 
@@ -75,7 +76,7 @@ A **put option** gives the buyer the right to **sell** 100 shares of a stock at 
 - **Buyer of a put:** Betting the stock goes down, or hedging an existing position. Profits if the stock falls below the strike price.
 - **Seller of a put:** Obligated to **buy** 100 shares at the strike price if the buyer exercises. Collects premium upfront. Profits if the stock stays above the strike price at expiration.
 
-That second one — **selling puts** — is your entry mechanism in the wheel. You'll collect premium and potentially acquire shares at a price you chose. More on that in Part 2.
+That second one — **selling puts** — is your entry mechanism in the wheel. You'll collect premium and potentially acquire shares at a price you chose. More on that in [Part 2](/posts/wheel-strategy-part-2).
 
 ---
 
@@ -213,7 +214,7 @@ Before we get into mechanics in Parts 2 and 3, here's the honest checklist:
 
 ## What's Coming in Parts 2 and 3
 
-**Part 2 — Selling Puts: The Entry Side**
+**[Part 2](/posts/wheel-strategy-part-2) — Selling Puts: The Entry Side**
 How to select a strike, choose an expiration, size a position, and manage a put trade from entry to expiration or assignment. We'll cover the mechanics of cash-secured vs. margin-secured puts, what to do when the stock moves against you, and how premium collection stacks up over time.
 
 **Part 3 — Selling Calls: The Exit Side**
