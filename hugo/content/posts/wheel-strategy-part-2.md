@@ -22,7 +22,7 @@ _This is Part 2 of a 3-part series. If you haven't read [Part 1](/posts/wheel-st
 
 ---
 
-## The Put Side in One Sentence
+## The Put Side, Put Simply
 
 You identify a stock you're willing to own. You agree to buy it at a price below its current market value. You collect cash upfront for making that agreement. If the stock stays above your price, you keep the cash and do it again. If it drops to your price, you buy the shares — at a discount to where it was trading when you made the agreement.
 
@@ -59,7 +59,7 @@ Your strike price determines two things simultaneously: how much premium you col
 
 **Use delta as your selector, not a percentage.**
 
-A common beginner mistake is selecting strikes by saying "I want to be 10% below the current price." That's not wrong, but it ignores implied volatility entirely. A 10% OTM strike on a low-volatility stock might have a delta of 0.05 — you're collecting almost nothing. A 10% OTM strike on a high-IV stock might have a delta of 0.25 — meaningful premium and real assignment risk.
+A common beginner mistake is selecting strikes by saying "I want to be 10% below the current price." That's not wrong, but it ignores implied volatility entirely. A 10% Out-of-The-Money (OTM) strike on a low-volatility stock might have a delta of 0.05 — you're collecting almost nothing. A 10% OTM strike on a high-IV stock might have a delta of 0.25 — meaningful premium and real assignment risk.
 
 Delta tells you the probability-adjusted position you're taking, regardless of the stock's absolute volatility.
 
