@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>The Wheel Strategy, Part 1: Understanding Options from the Ground Up | pras.io</title>
+<meta name="keywords" content="options, trading, wheel strategy, investing">
+<meta name="description" content="Before you can run the wheel, you need to understand what you&#39;re actually doing when you trade options. This is Part 1 of a 3-part series — no hand-holding, just the fundamentals done right.">
+<meta name="author" content="">
+<link rel="canonical" href="http://localhost:1313/posts/wheel-strategy-part-1/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.6ff46447b1fa3f8a5cc0bcae48088decc3ae37f5fbc99406a3aefc3bf0e6044a.css" integrity="sha256-b/RkR7H6P4pcwLyuSAiN7MOuN/X7yZQGo678O/DmBEo=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/wheel-strategy-part-1/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="header-nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="pras.io (Alt + H)">pras.io</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" class="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu" class="menu">
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      The Wheel Strategy, Part 1: Understanding Options from the Ground Up
+    </h1>
+    <div class="post-description">
+      Before you can run the wheel, you need to understand what you&#39;re actually doing when you trade options. This is Part 1 of a 3-part series — no hand-holding, just the fundamentals done right.
+    </div>
+    <div class="post-meta">
+
+<span title='2026-05-28 00:00:00 +0000 UTC'>May 28, 2026</span>
+
+</div>
+  </header> <details class="toc" >
+    <summary accesskey="c" title="(Alt + C)">
+        <span class="title">Table of Contents</span>
+    </summary>
+
+    <div class="inner"><ul>
+            <li>
+                <a href="#why-this-series-exists" aria-label="Why This Series Exists">Why This Series Exists</a></li>
+            <li>
+                <a href="#what-an-option-actually-is" aria-label="What an Option Actually Is">What an Option Actually Is</a></li>
+            <li>
+                <a href="#buyers-vs-sellers-the-asymmetry-that-matters" aria-label="Buyers vs. Sellers: The Asymmetry That Matters">Buyers vs. Sellers: The Asymmetry That Matters</a></li>
+            <li>
+                <a href="#the-two-types-of-options" aria-label="The Two Types of Options">The Two Types of Options</a><ul>
+                    
+            <li>
+                <a href="#calls" aria-label="Calls">Calls</a></li>
+            <li>
+                <a href="#puts" aria-label="Puts">Puts</a></li></ul>
+            </li>
+            <li>
+                <a href="#the-key-terms-you-need-to-know" aria-label="The Key Terms You Need to Know">The Key Terms You Need to Know</a><ul>
+                    
+            <li>
+                <a href="#strike-price" aria-label="Strike Price">Strike Price</a></li>
+            <li>
+                <a href="#expiration-date" aria-label="Expiration Date">Expiration Date</a></li>
+            <li>
+                <a href="#premium" aria-label="Premium">Premium</a></li>
+            <li>
+                <a href="#in-the-money-itm-vs-out-of-the-money-otm" aria-label="In-the-Money (ITM) vs. Out-of-the-Money (OTM)">In-the-Money (ITM) vs. Out-of-the-Money (OTM)</a></li>
+            <li>
+                <a href="#at-the-money-atm" aria-label="At-the-Money (ATM)">At-the-Money (ATM)</a></li></ul>
+            </li>
+            <li>
+                <a href="#time-value-and-intrinsic-value" aria-label="Time Value and Intrinsic Value">Time Value and Intrinsic Value</a></li>
+            <li>
+                <a href="#delta-the-most-useful-greek" aria-label="Delta: The Most Useful Greek">Delta: The Most Useful Greek</a></li>
+            <li>
+                <a href="#implied-volatility-the-premium-engine" aria-label="Implied Volatility: The Premium Engine">Implied Volatility: The Premium Engine</a></li>
+            <li>
+                <a href="#assignment-the-mechanism-that-makes-the-wheel-work" aria-label="Assignment: The Mechanism That Makes the Wheel Work">Assignment: The Mechanism That Makes the Wheel Work</a></li>
+            <li>
+                <a href="#why-selling-options-beats-buying-options-for-income-generation" aria-label="Why Selling Options Beats Buying Options for Income Generation">Why Selling Options Beats Buying Options for Income Generation</a></li>
+            <li>
+                <a href="#what-you-actually-need-to-run-the-wheel" aria-label="What You Actually Need to Run the Wheel">What You Actually Need to Run the Wheel</a></li>
+            <li>
+                <a href="#whats-coming-in-parts-2-and-3" aria-label="What&rsquo;s Coming in Parts 2 and 3">What&rsquo;s Coming in Parts 2 and 3</a>
+            </li>
+        </ul>
+    </div>
+</details>
+
+  <div class="post-content md-content"><blockquote>
+<p><strong>Disclaimer:</strong> This post is for educational purposes only and does not constitute financial advice. Options trading involves substantial risk of loss. Past performance is not indicative of future results. Consult a licensed financial professional before making any investment decisions. All examples are illustrative only.</p>
+</blockquote>
+<hr>
+<h2 id="why-this-series-exists">Why This Series Exists<a hidden class="anchor" aria-hidden="true" href="#why-this-series-exists">#</a></h2>
+<p>Most options content falls into one of two failure modes: it either drowns beginners in Greek letters before they understand the basic structure, or it oversimplifies to the point of being useless once you try to actually trade. This series aims for a third path — precise, unambiguous, and respectful of your ability to reason through complexity.</p>
+<p>The wheel strategy is one of the most approachable systematic options strategies. It&rsquo;s not exotic. It doesn&rsquo;t require predicting market direction with precision. And it generates real, recurring income from stocks you&rsquo;re already willing to own. But it requires a genuine understanding of what options are and how they behave — not just a surface-level metaphor.</p>
+<p>This first post lays that foundation. Parts 2 and 3 will cover the two operational legs of the wheel: selling puts (entry) and selling calls (exit). If you&rsquo;re already comfortable with options mechanics, skim ahead. If not, read carefully — the conceptual framework here will make everything downstream much cleaner.</p>
+<hr>
+<h2 id="what-an-option-actually-is">What an Option Actually Is<a hidden class="anchor" aria-hidden="true" href="#what-an-option-actually-is">#</a></h2>
+<p>An option is a <strong>contract</strong> that gives its buyer the right — but not the obligation — to buy or sell a fixed quantity of an underlying asset at a predetermined price, on or before a specific date.</p>
+<p>That&rsquo;s the definition. Let&rsquo;s make it concrete.</p>
+<p>Say a stock is trading at $50. You buy one option contract that gives you the right to purchase 100 shares of that stock at $48, any time within the next 30 days. You paid $3 per share (so $300 total, since each contract covers 100 shares) for this right.</p>
+<p>If the stock moves to $60 over those 30 days, your right to buy at $48 is now extremely valuable — you can exercise it, acquire shares at $48, and immediately sell at $60 for a $12/share gain, minus the $3 you paid for the contract. Net profit: $9 × 100 = $900 on a $300 outlay. That&rsquo;s a 3× return on capital.</p>
+<p>If the stock stays at $50 or drops to $40, the option expires worthless. You lose your $300. But that&rsquo;s the extent of your loss — you had the right, not the obligation, to buy.</p>
+<p>Notice the asymmetry. The buyer&rsquo;s downside is capped at the premium paid. The upside is theoretically unlimited. This asymmetry is the defining feature of options — and it&rsquo;s precisely why someone has to be on the other side.</p>
+<p>That someone is the <strong>seller</strong>.</p>
+<hr>
+<h2 id="buyers-vs-sellers-the-asymmetry-that-matters">Buyers vs. Sellers: The Asymmetry That Matters<a hidden class="anchor" aria-hidden="true" href="#buyers-vs-sellers-the-asymmetry-that-matters">#</a></h2>
+<p>When you buy an option, you pay a premium. When you sell an option, you collect that premium — and you take on the obligation that the buyer is hedging against.</p>
+<p>The buyer has a right. The seller has an obligation.</p>
+<p>This is the structural core of every options trade. The buyer is paying for optionality. The seller is being compensated for taking on risk. Neither side is inherently right or wrong — they have different views, different time horizons, and different goals.</p>
+<p>The wheel strategy is built entirely on the <strong>selling side</strong>. You are the one collecting premium, not paying it. You are accepting an obligation in exchange for income. Understanding this framing is critical — it changes how you think about every trade.</p>
+<hr>
+<h2 id="the-two-types-of-options">The Two Types of Options<a hidden class="anchor" aria-hidden="true" href="#the-two-types-of-options">#</a></h2>
+<p>There are exactly two types of options contracts:</p>
+<h3 id="calls">Calls<a hidden class="anchor" aria-hidden="true" href="#calls">#</a></h3>
+<p>A <strong>call option</strong> gives the buyer the right to <strong>buy</strong> 100 shares of a stock at a fixed price (the <em>strike price</em>) before the option expires.</p>
+<ul>
+<li><strong>Buyer of a call:</strong> Betting the stock goes up. Profits if the stock rises above the strike price by more than the premium paid.</li>
+<li><strong>Seller of a call:</strong> Obligated to sell 100 shares at the strike price if the buyer exercises. Collects premium upfront. Profits if the stock stays below the strike price at expiration.</li>
+</ul>
+<h3 id="puts">Puts<a hidden class="anchor" aria-hidden="true" href="#puts">#</a></h3>
+<p>A <strong>put option</strong> gives the buyer the right to <strong>sell</strong> 100 shares of a stock at a fixed price before expiration.</p>
+<ul>
+<li><strong>Buyer of a put:</strong> Betting the stock goes down, or hedging an existing position. Profits if the stock falls below the strike price.</li>
+<li><strong>Seller of a put:</strong> Obligated to <strong>buy</strong> 100 shares at the strike price if the buyer exercises. Collects premium upfront. Profits if the stock stays above the strike price at expiration.</li>
+</ul>
+<p>That second one — <strong>selling puts</strong> — is your entry mechanism in the wheel. You&rsquo;ll collect premium and potentially acquire shares at a price you chose. More on that in Part 2.</p>
+<hr>
+<h2 id="the-key-terms-you-need-to-know">The Key Terms You Need to Know<a hidden class="anchor" aria-hidden="true" href="#the-key-terms-you-need-to-know">#</a></h2>
+<p>You don&rsquo;t need a glossary of 40 terms. You need these, precisely understood.</p>
+<h3 id="strike-price">Strike Price<a hidden class="anchor" aria-hidden="true" href="#strike-price">#</a></h3>
+<p>The price at which the option contract is exercisable. If you sell a put with a $45 strike on a stock trading at $50, you&rsquo;re agreeing to buy the stock at $45 if the buyer decides to sell it to you at that price. The strike price is your commitment.</p>
+<h3 id="expiration-date">Expiration Date<a hidden class="anchor" aria-hidden="true" href="#expiration-date">#</a></h3>
+<p>Every option has an expiry. After that date, the contract ceases to exist. Most actively traded stocks have weekly expirations (every Friday) and monthly expirations. The wheel typically uses <strong>short-dated expirations</strong> — 1 to 4 weeks out — to maximize time decay collection.</p>
+<h3 id="premium">Premium<a hidden class="anchor" aria-hidden="true" href="#premium">#</a></h3>
+<p>The price of the option contract, quoted per share. Since each contract covers 100 shares, a $1.50 premium means $150 total for one contract. This is the income you collect when you sell.</p>
+<h3 id="in-the-money-itm-vs-out-of-the-money-otm">In-the-Money (ITM) vs. Out-of-the-Money (OTM)<a hidden class="anchor" aria-hidden="true" href="#in-the-money-itm-vs-out-of-the-money-otm">#</a></h3>
+<p>These terms describe the relationship between the current stock price and the option&rsquo;s strike price:</p>
+<ul>
+<li>A <strong>call</strong> is ITM when the stock price is <strong>above</strong> the strike. OTM when below.</li>
+<li>A <strong>put</strong> is ITM when the stock price is <strong>below</strong> the strike. OTM when above.</li>
+</ul>
+<p>In the wheel, you sell <strong>OTM options</strong>. A put with a strike below the current stock price. A call with a strike above the current price. You want them to expire worthless — OTM — so you keep the full premium.</p>
+<h3 id="at-the-money-atm">At-the-Money (ATM)<a hidden class="anchor" aria-hidden="true" href="#at-the-money-atm">#</a></h3>
+<p>When the stock price is approximately equal to the strike. ATM options carry the most time value and therefore the highest premium. They&rsquo;re also the most likely to swing ITM or OTM with moderate stock movement.</p>
+<hr>
+<h2 id="time-value-and-intrinsic-value">Time Value and Intrinsic Value<a hidden class="anchor" aria-hidden="true" href="#time-value-and-intrinsic-value">#</a></h2>
+<p>Every option&rsquo;s price consists of two components:</p>
+<p><strong>Intrinsic value</strong> is the amount the option is already in-the-money. A call with a $45 strike on a $50 stock has $5 of intrinsic value — you could exercise right now, buy at $45, sell at $50, and pocket $5/share.</p>
+<p><strong>Time value</strong> (also called extrinsic value) is everything else — the premium the market pays for the possibility that the option moves further in your favor before expiration. It reflects time remaining, implied volatility, and distance from the strike.</p>
+<p>The key insight for the wheel: <strong>time value decays to zero at expiration.</strong> An OTM option at expiry is worth exactly $0. This decay — called <strong>theta decay</strong> — is the structural tailwind that option sellers exploit. As a seller, time is working for you. Every day that passes without the stock moving against you is a day closer to full premium capture.</p>
+<p>This is not magic. You are being paid to absorb risk. The premium compensates you for the possibility that the stock moves sharply against you. The strategy works when you select strikes and stocks carefully enough that the stock rarely moves into your danger zone.</p>
+<hr>
+<h2 id="delta-the-most-useful-greek">Delta: The Most Useful Greek<a hidden class="anchor" aria-hidden="true" href="#delta-the-most-useful-greek">#</a></h2>
+<p>The &ldquo;Greeks&rdquo; are sensitivity measures for option pricing. You don&rsquo;t need all of them to run the wheel effectively, but <strong>delta</strong> is non-negotiable.</p>
+<p>Delta measures how much an option&rsquo;s price changes for a $1 move in the underlying stock. A delta of 0.20 means the option gains or loses $0.20 for every $1 the stock moves.</p>
+<p>More practically: <strong>delta is approximately the probability that the option expires in-the-money.</strong> A delta-0.20 put has roughly a 20% chance of expiring ITM — meaning an 80% chance of expiring worthless and you keeping the full premium.</p>
+<p>This is how you should think about strike selection in the wheel:</p>
+<ul>
+<li><strong>Higher delta (0.30–0.40):</strong> Closer to ATM. More premium, but higher risk of assignment. More aggressive.</li>
+<li><strong>Lower delta (0.10–0.15):</strong> Further OTM. Less premium, but high probability of expiring worthless. More conservative.</li>
+<li><strong>Wheel sweet spot: delta 0.20–0.30</strong> for puts. You&rsquo;re collecting meaningful premium with a ~70–80% probability of keeping it clean.</li>
+</ul>
+<p>Delta is also dynamic — it changes as the stock moves. If the stock drops and your put moves closer to the strike, delta rises. If the stock rallies away from your strike, delta falls and your put is &ldquo;safer.&rdquo; Monitoring delta over the life of a trade tells you a lot about how exposed you are.</p>
+<hr>
+<h2 id="implied-volatility-the-premium-engine">Implied Volatility: The Premium Engine<a hidden class="anchor" aria-hidden="true" href="#implied-volatility-the-premium-engine">#</a></h2>
+<p>Premium isn&rsquo;t arbitrary — it&rsquo;s driven primarily by <strong>implied volatility (IV)</strong>, the market&rsquo;s expectation of how much the stock will move.</p>
+<p>Higher IV = higher premium. A stock expected to move 5% per week will have more expensive options than a stock expected to move 1% per week. The market is pricing in the uncertainty.</p>
+<p>For the wheel, IV matters in two ways:</p>
+<ol>
+<li>
+<p><strong>Entry timing:</strong> You want to sell options when IV is elevated, not compressed. High IV means fat premiums. After earnings, during periods of market stress, or when a stock has had a sharp move — these are often high-IV environments. You collect more income for the same risk.</p>
+</li>
+<li>
+<p><strong>Stock selection:</strong> Higher-IV stocks (think biotech, high-growth tech, meme stocks) offer lucrative premiums but also genuine volatility. The premium isn&rsquo;t free money — it exists because the stock actually moves that much sometimes. Select stocks whose volatility you understand and are comfortable absorbing as the underlying owner.</p>
+</li>
+</ol>
+<p>A useful metric is <strong>IV Rank (IVR)</strong>: where current IV sits relative to its range over the past year. An IVR of 70 means current IV is higher than 70% of readings over the past year — a good selling environment. An IVR of 10 means IV is compressed; premiums are thin.</p>
+<hr>
+<h2 id="assignment-the-mechanism-that-makes-the-wheel-work">Assignment: The Mechanism That Makes the Wheel Work<a hidden class="anchor" aria-hidden="true" href="#assignment-the-mechanism-that-makes-the-wheel-work">#</a></h2>
+<p><strong>Assignment</strong> is what happens when the option buyer exercises their right. As the seller, you&rsquo;re obligated to fulfill your side of the contract.</p>
+<ul>
+<li>If you sold a <strong>put</strong> and it expires ITM (stock is below your strike), you&rsquo;re assigned: you must buy 100 shares per contract at the strike price.</li>
+<li>If you sold a <strong>call</strong> and it expires ITM (stock is above your strike), you&rsquo;re assigned: you must sell 100 shares per contract at the strike price.</li>
+</ul>
+<p>Most retail traders treat assignment as something to avoid. In the wheel, it&rsquo;s the intentional mechanism of the strategy.</p>
+<p>When your put gets assigned, you&rsquo;ve acquired shares — at a price you chose in advance, and at an effective cost basis reduced by the premium you collected. You wanted to own this stock at this price. That was the plan.</p>
+<p>When your call gets assigned, you sell your shares at a price you chose — again, at an effective price enhanced by the premium collected along the way. You exit the position profitably.</p>
+<p>The wheel turns: put → assignment → call → assignment → put → assignment → &hellip;</p>
+<p>Understanding that assignment is not failure — it&rsquo;s the strategy executing — changes your entire mental model of how to run this.</p>
+<hr>
+<h2 id="why-selling-options-beats-buying-options-for-income-generation">Why Selling Options Beats Buying Options for Income Generation<a hidden class="anchor" aria-hidden="true" href="#why-selling-options-beats-buying-options-for-income-generation">#</a></h2>
+<p>This is worth stating explicitly, because most new options traders start as buyers.</p>
+<p>Buying options is a bet on direction and timing. Both have to be right. You need the stock to move in your direction, far enough, fast enough to overcome time decay. Studies consistently show that the majority of options expire worthless — which means option buyers lose most of the time on a per-contract basis, even when their directional thesis is eventually correct.</p>
+<p>Selling options flips this. You profit when:</p>
+<ul>
+<li>The stock moves in your direction ✓</li>
+<li>The stock moves sideways ✓</li>
+<li>The stock moves moderately against you ✓</li>
+</ul>
+<p>You lose only when the stock moves sharply against you. You have three scenarios working for you instead of one. That&rsquo;s a structural advantage.</p>
+<p>The cost is capped upside. As a call seller, you don&rsquo;t participate in a parabolic move beyond your strike. As a put seller, your downside is the stock going to zero minus the premium received. You&rsquo;re not speculating on outsized moves — you&rsquo;re systematically harvesting probability-weighted income.</p>
+<p>For a stock-focused trader who is willing to own quality names at defined prices, the risk profile is actually more intuitive than it first appears. You already understand what it means to own stock — the wheel just gives you a structured, premium-enhanced way to enter and exit positions.</p>
+<hr>
+<h2 id="what-you-actually-need-to-run-the-wheel">What You Actually Need to Run the Wheel<a hidden class="anchor" aria-hidden="true" href="#what-you-actually-need-to-run-the-wheel">#</a></h2>
+<p>Before we get into mechanics in Parts 2 and 3, here&rsquo;s the honest checklist:</p>
+<p><strong>Capital:</strong> The wheel is capital-intensive by design. Selling a cash-secured put on a $50 stock requires $5,000 per contract in cash or margin to cover potential assignment (100 shares × $50). This isn&rsquo;t a strategy for small accounts chasing outsized returns. It&rsquo;s a strategy for building consistent yield on meaningful capital.</p>
+<p><strong>Broker access:</strong> You need options approval from your broker. Most brokers offer tiered options permissions — you need at minimum Level 1 (covered calls) and Level 2 (cash-secured puts). This requires a short application and usually some disclosure of trading experience.</p>
+<p><strong>Stock selection:</strong> This deserves its own post, but the short version: only wheel stocks you&rsquo;d be comfortable holding. If you&rsquo;d never buy 500 shares of a company at any price, don&rsquo;t sell puts on it. The wheel doesn&rsquo;t insulate you from a stock going to zero. Stock selection is risk management.</p>
+<p><strong>Discipline:</strong> The wheel is a repeating process. Its edge comes from consistency — not from nailing individual trades. The trades that feel most uncomfortable (rolling a position, taking assignment, holding through volatility) are often the ones the strategy requires. Discipline here is non-negotiable.</p>
+<hr>
+<h2 id="whats-coming-in-parts-2-and-3">What&rsquo;s Coming in Parts 2 and 3<a hidden class="anchor" aria-hidden="true" href="#whats-coming-in-parts-2-and-3">#</a></h2>
+<p><strong>Part 2 — Selling Puts: The Entry Side</strong>
+How to select a strike, choose an expiration, size a position, and manage a put trade from entry to expiration or assignment. We&rsquo;ll cover the mechanics of cash-secured vs. margin-secured puts, what to do when the stock moves against you, and how premium collection stacks up over time.</p>
+<p><strong>Part 3 — Selling Calls: The Exit Side</strong>
+Once you&rsquo;re assigned shares, how to sell covered calls systematically to generate income and eventually exit your position. We&rsquo;ll cover strike selection relative to your cost basis, rolling mechanics, and how to handle a stock that rallies above your call strike.</p>
+<hr>
+<p><em>This is Part 1 of a 3-part series on the wheel strategy. If you have questions or want something clarified, reach out directly.</em></p>
+<blockquote>
+<p><strong>Reminder:</strong> Nothing in this post is financial advice. Options trading carries real risk of significant loss. Educate yourself thoroughly, paper trade before committing real capital, and consult a financial professional if you&rsquo;re unsure whether this strategy fits your situation.</p>
+</blockquote>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/tags/options/">Options</a></li>
+      <li><a href="http://localhost:1313/tags/trading/">Trading</a></li>
+      <li><a href="http://localhost:1313/tags/wheel-strategy/">Wheel Strategy</a></li>
+      <li><a href="http://localhost:1313/tags/investing/">Investing</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="http://localhost:1313/">pras.io</a></span> · 
+
+    
+    
+    <span>
+        Powered by
+        <a href="https://gohugo.io/?utm_source=papermod" rel="noopener" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" id="top-link" class="top-link hidden" aria-label="go to top" title="Go to Top (Alt + G)" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-up">
+        <polyline points="17 11 12 6 7 11"></polyline>
+        <polyline points="17 18 12 13 7 18"></polyline>
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var toplink = document.getElementById("top-link");
+    window.onscroll = function () {
+        const scrollThreshold = window.innerHeight;
+        if (document.body.scrollTop > scrollThreshold || document.documentElement.scrollTop > scrollThreshold) {
+            toplink.classList.remove("hidden");
+        } else {
+            toplink.classList.add("hidden");
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

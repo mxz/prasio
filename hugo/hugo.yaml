@@ -1,4 +1,12 @@
 baseURL: https://pras.io/
 languageCode: en-us
 title: pras.io
-theme: ["PaperMod"]
+theme: "PaperMod"
+
+params:
+  hideAllPostsOnHome: true
+  disableSpecial1stPost: true
+  hideSummary: true
+
+menu:
+  main: []

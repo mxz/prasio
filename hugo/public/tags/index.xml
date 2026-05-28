@@ -6,6 +6,35 @@
     <description>Recent content in Tags on pras.io</description>
     <generator>Hugo</generator>
     <language>en-us</language>
+    <lastBuildDate>Thu, 28 May 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Investing</title>
+      <link>http://localhost:1313/tags/investing/</link>
+      <pubDate>Thu, 28 May 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/investing/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Options</title>
+      <link>http://localhost:1313/tags/options/</link>
+      <pubDate>Thu, 28 May 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/options/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Trading</title>
+      <link>http://localhost:1313/tags/trading/</link>
+      <pubDate>Thu, 28 May 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/trading/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Wheel Strategy</title>
+      <link>http://localhost:1313/tags/wheel-strategy/</link>
+      <pubDate>Thu, 28 May 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/wheel-strategy/</guid>
+      <description></description>
+    </item>
   </channel>
 </rss>
